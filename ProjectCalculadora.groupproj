@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{20C34B08-D60D-4040-B7BE-C412C90E9B2E}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Calculadora.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="..\..\..\..\..\Desktop\Treinamento_DC_Calculadora-master\ProjetoCalculadora.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Calculadora">
+        <MSBuild Projects="Calculadora.dproj"/>
+    </Target>
+    <Target Name="Calculadora:Clean">
+        <MSBuild Projects="Calculadora.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Calculadora:Make">
+        <MSBuild Projects="Calculadora.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ProjetoCalculadora">
+        <MSBuild Projects="..\..\..\..\..\Desktop\Treinamento_DC_Calculadora-master\ProjetoCalculadora.dproj"/>
+    </Target>
+    <Target Name="ProjetoCalculadora:Clean">
+        <MSBuild Projects="..\..\..\..\..\Desktop\Treinamento_DC_Calculadora-master\ProjetoCalculadora.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ProjetoCalculadora:Make">
+        <MSBuild Projects="..\..\..\..\..\Desktop\Treinamento_DC_Calculadora-master\ProjetoCalculadora.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Calculadora;ProjetoCalculadora"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Calculadora:Clean;ProjetoCalculadora:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Calculadora:Make;ProjetoCalculadora:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
